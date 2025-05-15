@@ -1,4 +1,13 @@
 import React from 'react'
+
+import Home from './Component/Home/index.jsx';
+
+function App() {
+
+  return (
+    <div>
+      <Home/>
+    
 import Foodlover from './FoodLover/Foodlover'
 
 function App() {
@@ -6,6 +15,7 @@ function App() {
     <div>
       <Foodlover/>
       
+
     </div>
   )
 }
