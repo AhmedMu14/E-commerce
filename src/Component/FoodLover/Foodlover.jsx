@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Button } from 'primereact/button';
 import { Carousel } from 'primereact/carousel'; 
 import { Tag } from 'primereact/tag';
-import productimage from '../ProductService'; // ✅ update path as needed
+import productimage from '../../ProductService'; // ✅ update path as needed
 
 function Foodlover() {
   
