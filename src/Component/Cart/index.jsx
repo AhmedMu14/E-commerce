@@ -5,13 +5,13 @@ import { XMarkIcon } from '@heroicons/react/24/outline'
 const  Cart = ({isOpen, onClose}) => {
   return (
     <div className={`fixed top-0 right-0 h-full w-80 bg-white shadow-xl z-50 transition-transform duration-300 ease-in-out ${isOpen ? "translate-x-0" : "translate-x-full"}`}>
-        <div className="flex justify-between items-center p-4 border-b">
+        <div className="flex justify-between items-center p-4 border-b border-gray-200">
             <h2 className="text-lg font-semibold">Shopping Cart</h2>
             <button onClick={onClose}>
                 <XMarkIcon className="h-6 w-6 text-gray-700" />
             </button>
         </div>
-        <div className="p-4 text-center">
+        <div className="p-15 text-center">
             <img
             src={EmptyCart}
             alt="Empty Cart"

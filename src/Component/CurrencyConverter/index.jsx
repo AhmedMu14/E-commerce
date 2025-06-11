@@ -59,11 +59,11 @@ const CurrencyConverter = ({ className, triggerComponent }) => {
         >
           {currencies.length ? (
             (() => {
-              const limit = 9;
+              const limit = 5;
               const limitedCurrencies = currencies.slice(0, limit);
 
-              if (!limitedCurrencies.includes("PKR")) {
-                limitedCurrencies.push("PKR");
+              if (!limitedCurrencies.includes("PKR","INR","EUR")) {
+                limitedCurrencies.push("PKR","INR","EUR");
               }
 
               return limitedCurrencies.map((currency) => (
