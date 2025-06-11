@@ -1,35 +1,42 @@
-import React from 'react'
-import image from '../../assets/home.jpg'
-import { MagnifyingGlassIcon } from '@heroicons/react/16/solid';
+import React from 'react';
+import image from '../../assets/home.jpg';
+import { MagnifyingGlassIcon } from '@heroicons/react/24/solid'; // Corrected import path for Heroicons v2
 
-const index = () => {
+const Index = () => {
   return (
-    <div className='relative w-full h-screen bg-gray-100 flex items-center justify-center'>
+    <div className="relative w-full h-screen bg-gray-100 flex items-center justify-center">
+      {/* Background Image */}
       <img
         src={image}
         alt="Fresh Vegetables"
-        className='absolute inset-0 w-full h-screen object-cover '
+        className="absolute inset-0 w-full h-screen object-cover"
       />
 
+      {/* Overlay Content */}
       <div className="relative z-10 text-center px-4 lg:px-8">
-        <h1 className="text-2xl lg:text-5xl mb-3 font-bold text-white ">
-          Eat Fresh, Feel Great – Because <br></br>You Deserve the Best.
+        {/* Title */}
+        <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl mb-4 font-bold text-white">
+          Eat Fresh, Feel Great –<br className="hidden sm:block" /> Because You Deserve the Best.
         </h1>
 
-        <p className="text-xl text-gray-100 mb-8 max-w-xl mx-auto">
-          Green Basket brings you fresh veggies from local farms, <br></br> delivered to your door.
+        {/* Subtitle */}
+        <p className="text-sm sm:text-base md:text-lg text-gray-100 mb-6 max-w-md sm:max-w-lg mx-auto">
+          Green Basket brings you fresh veggies from local farms,
+          <br className="hidden sm:block" /> delivered to your door.
         </p>
-        <div className="flex justify-center">
+
+        {/* Search Box */}
+        <div className="flex justify-center items-center max-w-md mx-auto relative">
           <input
             type="text"
-            placeholder="What are you looking..."
-            className="px-70 pl-5 py-4 border bg-white border-gray-300 rounded focus:outline-none" />
-          <MagnifyingGlassIcon className="w-7 h-19 absolute right-40 top 1/2 transform -translate-y-1/9 text-gray-300 cursor-pointer"/>
-
+            placeholder="What are you looking for..."
+            className="w-full px-4 py-3 pr-12 border bg-white border-gray-300 rounded focus:outline-none text-sm sm:text-base"
+          />
+          <MagnifyingGlassIcon className="w-5 h-5 text-gray-400 absolute right-4 top-1/2 transform -translate-y-1/2 cursor-pointer" />
         </div>
       </div>
     </div>
   );
 };
 
-export default index
+export default Index;
