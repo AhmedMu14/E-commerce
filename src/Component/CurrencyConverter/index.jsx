@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import * as select from "@radix-ui/react-select";
 import axios from "axios";
-import { ChevronDownIcon } from "@heroicons/react/24/outline";
+// import { ChevronDownIcon } from "@heroicons/react/24/outline";
 
 const CurrencyConverter = ({ className, triggerComponent }) => {
   const [currencies, setCurrencies] = useState([]);
