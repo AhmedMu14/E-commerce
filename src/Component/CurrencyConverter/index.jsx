@@ -42,7 +42,7 @@ const CurrencyConverter = ({ className, triggerComponent }) => {
     <div className={`relative ${className}`}>
       <select.Select value={selectedCurrency} onValueChange={handleCurrencyChange}>
         <select.SelectTrigger
-          className="flex items-center p-2 border border-gray-300 rounded-lg bg-white cursor-pointer"
+          className="w-full flex items-center justify-between px-0.5 py-2 border border-gray-300 rounded-lg bg-white cursor-pointer text-sm sm:text-base"
         >
           {triggerComponent ? (
             triggerComponent
@@ -55,7 +55,7 @@ const CurrencyConverter = ({ className, triggerComponent }) => {
         </select.SelectTrigger>
 
         <select.SelectContent
-          className="bg-white border shadow-lg rounded-lg mt-1 p-2 z-50 max-h-56 overflow-y-auto"
+          className="w-full bg-white border shadow-lg rounded-lg mt-1 p-2 z-50 max-h-56 overflow-y-auto text-sm"
         >
           {currencies.length ? (
             (() => {
@@ -84,7 +84,7 @@ const CurrencyConverter = ({ className, triggerComponent }) => {
 
       {/* Display Conversion Rate Only When a Currency is Selected */}
       {selectedCurrency && conversionRate !== null && (
-        <div className="mt-2 text-gray-700">
+        <div className="mt-2 text-gray-700 text-sm sm:text-base">
           1 {baseCurrency} = {conversionRate} {selectedCurrency}
         </div>
       )}

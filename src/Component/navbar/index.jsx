@@ -39,7 +39,7 @@ const Navbar = () => {
 
         {/* Sign In */}
         <div className="flex items-center space-x-1 cursor-pointer">
-          <UserIcon className="w-6 h-6 text-gray-500" />
+          <UserIcon className="w-7 h-7 text-gray-500" />
           <span className="hidden md:block text-gray-600">Sign In</span>
         </div>
 
