@@ -1,20 +1,25 @@
-import React from 'react';
-import Navbar from './Component/navbar/index.jsx';
-import Home from './Component/Home/index.jsx';
-import CurrencyConverter from './Component/CurrencyConverter/index.jsx';
-import ProductCard from'./Component/ProductCard/index.jsx';
-// import Foodlover from './Component/FoodLover/Foodlover.jsx';
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Navbar from "./Component/navbar/index";
+import SignIn from "./Component/Signin/index";
+import SignUp from "./Component/Signup/index";
+import Home from "./Component/Home/index";
+// import About from "./Component/About";
+// import Profile from "./Component/Profile";
+import React from "react";
 
 function App() {
-
   return (
-    <div>
-      <Navbar/>
-      <Home/>
-      {/* <CurrencyConverter/> */}
-      <ProductCard/>
-      {/* <Foodlover/>  */}
-    </div>
-  )
+    <BrowserRouter>
+      <Navbar />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        {/* <Route path="/about" element={<About />} /> */}
+        <Route path="/signup" element={<SignUp />} />
+        <Route path="/signin" element={<SignIn />} />
+        {/* <Route path="/profile" element={<Profile />} /> */}
+      </Routes>
+    </BrowserRouter>
+  );
 }
-export default App
+
+export default App;
