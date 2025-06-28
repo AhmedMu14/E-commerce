@@ -8,7 +8,7 @@ const  Cart = ({isOpen, onClose}) => {
         <div className="flex justify-between items-center p-4 border-b border-gray-200">
             <h2 className="text-lg font-semibold">Shopping Cart</h2>
             <button onClick={onClose}>
-                <XMarkIcon className="h-6 w-6 text-gray-700" />
+                 <XMarkIcon className="h-6 w-6 text-gray-700" /> 
             </button>
         </div>
         <div className="p-15 text-center">
