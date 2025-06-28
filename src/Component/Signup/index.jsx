@@ -1,33 +1,33 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
+
 
 const SignUp = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
 
-  const handleSignup = (e) => {
-    e.preventDefault();
+const handleSignup = (e) => {
+  e.preventDefault();
 
-    if (!email || !password) {
-      alert("Please fill all fields");
-      return;
-    }
+  if (!email || !password) {
+    toast.error("Please fill all fields");
+    return;
+  }
 
-    const user = { email, password };
-    localStorage.setItem("user", JSON.stringify(user));
-    alert("Signup successful!");
+  const user = { email, password };
+  localStorage.setItem("user", JSON.stringify(user));
+  toast.success("Signup successful!");
+};
 
-    // Redirect to Sign In after successful registration
-    navigate("/signin");
-  };
 
   return (
     <div className="min-h-screen flex">
       {/* Left side - image */}
       <div className="w-1/2 hidden md:block">
         <img
-          src="https://images.pexels.com/photos/3184357/pexels-photo-3184357.jpeg"
+          src="https://www.lovethegarden.com/sites/default/files/styles/header_image_fallback/public/content/articles/When%20to%20plant%20vegetables%20article%20-%20Hero.jpg?itok=yhhnrl9v"
           alt="Sign Up"
           className="h-full w-full object-cover"
         />

@@ -1,22 +1,40 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Navbar from "./Component/navbar/index";
+import Navbar from "./Component/MainComponents/navbar/index";
 import SignIn from "./Component/Signin/index";
 import SignUp from "./Component/Signup/index";
-import Home from "./Component/Home/index";
-// import About from "./Component/About";
-// import Profile from "./Component/Profile";
+import Home from "./Component/MainComponents/Home/index";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import AdminDashboard from "./Component/AdminDash";
+import AdminLogin from "./Component/AdminLogin";
+import AvatarSlider from './Component/MainComponents/Slider/index'
 import React from "react";
 
+// ✅ Layout component with Navbar
+const Layout = ({ children }) => (
+  <>
+    <Navbar />
+    {children}
+  </>
+);
 function App() {
   return (
     <BrowserRouter>
-      <Navbar />
+      <ToastContainer position="top-center" /> {/* ✅ global and only once */}
       <Routes>
-        <Route path="/" element={<Home />} />
-        {/* <Route path="/about" element={<About />} /> */}
-        <Route path="/signup" element={<SignUp />} />
+        <Route path="/admin-login" element={<AdminLogin />} />
         <Route path="/signin" element={<SignIn />} />
-        {/* <Route path="/profile" element={<Profile />} /> */}
+        <Route path="/signup" element={<SignUp />} />
+        <Route path="/admin-dashboard" element={<AdminDashboard />} />
+        <Route
+          path="/"
+          element={
+            <Layout>
+              {/* <Home /> */}
+              <AvatarSlider/>
+            </Layout>
+          }
+        />
       </Routes>
     </BrowserRouter>
   );

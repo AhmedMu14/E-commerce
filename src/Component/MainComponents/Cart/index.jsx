@@ -1,5 +1,5 @@
 import React from 'react'
-import EmptyCart from '../../assets/Cart.jpg'
+import EmptyCart from '../../../assets/Cart.jpg'
 // import { XMarkIcon } from '@heroicons/react/24/outline' 
 
 const  Cart = ({isOpen, onClose}) => {
