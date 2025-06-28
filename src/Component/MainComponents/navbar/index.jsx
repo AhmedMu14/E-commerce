@@ -1,19 +1,43 @@
 import React, { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import CurrencyConverter from "../CurrencyConverter/index";
-import Cart from "../Cart";
-// import { UserIcon } from "@heroicons/react/24/solid"; // ✅ make sure you installed heroicons
+import Cart from "../../MainComponents/Cart/index";
 import { faUser } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { toast } from "react-toastify";
+
 
 const Navbar = () => {
   const [isCartOpen, setIsCartOpen] = useState(false);
   const [user, setUser] = useState(null);
   const navigate = useNavigate();
 
+ const handleCartClick = () => {
+  const user = JSON.parse(localStorage.getItem("user"));
+
+  if (!user) {
+    toast.error("Please sign in first.");
+
+    // ⏳ Wait 3 seconds before navigating to /signin
+    setTimeout(() => {
+      navigate("/signin");
+    }, 3000);
+
+    return;
+  }
+  setIsCartOpen(true);
+};
+  // ✅ Keep user state synced with localStorage
   useEffect(() => {
     const storedUser = JSON.parse(localStorage.getItem("user"));
     setUser(storedUser);
+
+    // Optional: watch for storage change in case of multi-tab
+    const handleStorageChange = () => {
+      setUser(JSON.parse(localStorage.getItem("user")));
+    };
+
+    window.addEventListener("storage", handleStorageChange);
+    return () => window.removeEventListener("storage", handleStorageChange);
   }, []);
 
   const handleLogout = () => {
@@ -32,7 +56,7 @@ const Navbar = () => {
         {/* Cart Button */}
         <div
           className="relative flex items-center space-x-1 cursor-pointer"
-          onClick={() => setIsCartOpen(true)}
+          onClick={handleCartClick}
         >
           <span className="hidden md:block text-gray-600">Cart</span>
           <div className="absolute -top-2 -right-2 bg-teal-500 text-white rounded-full text-xs w-5 h-5 flex items-center justify-center">
@@ -48,9 +72,7 @@ const Navbar = () => {
         ) : (
           <>
             <Link to="/profile" className="text-gray-600 hover:text-green-600">
-              {/* <UserIcon className="w-6 h-6 inline-block" /> */}
-              <FontAwesomeIcon icon={faUser} className="text-gray-600 text-xl" />
-
+              <FontAwesomeIcon icon={faUser} className="text-xl" />
             </Link>
             <button
               onClick={handleLogout}

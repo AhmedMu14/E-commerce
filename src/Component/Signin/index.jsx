@@ -1,30 +1,37 @@
 import React, { useState } from 'react';
 import { useNavigate, Link } from "react-router-dom";
+import { useEffect } from 'react';
+import { toast } from "react-toastify";
+
 
 const Signin = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
 
-  const handleSignin = (e) => {
-    e.preventDefault();
-    const user = JSON.parse(localStorage.getItem("user"));
 
-    if (user?.email === email && user?.password === password) {
-      alert("Login Successful");
-      navigate("/");
-      window.location.reload(); // refresh Navbar
-    } else {
-      alert("Invalid Credentials");
-    }
-  };
+ 
+
+  const handleSignin = (e) => {
+  e.preventDefault();
+  const user = JSON.parse(localStorage.getItem("user"));
+
+  if (user?.email === email && user?.password === password) {
+    toast.success("Login Successful");
+    navigate("/");
+    setTimeout(() => window.location.reload(), 1000);
+  } else {
+    toast.error("Invalid Credentials");
+  }
+};
+
 
   return (
     <div className="min-h-screen flex">
       {/* Left side - image */}
       <div className="w-1/2 hidden md:block">
         <img
-          src="https://images.pexels.com/photos/414612/pexels-photo-414612.jpeg?cs=srgb&dl=pexels-souvenirpixels-414612.jpg&fm=jpg"
+          src="https://cherubbaby.com.au/cdn/shop/articles/20210811081230-Vegetable_20stock_1986x.png?v=1628669564"
           alt="Sign In"
           className="h-full w-full object-cover"
         />
