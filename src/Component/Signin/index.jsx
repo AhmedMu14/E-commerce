@@ -19,11 +19,20 @@ const Signin = () => {
   if (user?.email === email && user?.password === password) {
     toast.success("Login Successful");
     navigate("/");
-    setTimeout(() => window.location.reload(), 1000);
   } else {
     toast.error("Invalid Credentials");
   }
 };
+
+
+useEffect(() => {
+  const signupSuccess = localStorage.getItem("signupSuccess");
+
+  if (signupSuccess === "true") {
+    toast.success("Signup successful!"); // ✅ Show alert
+    localStorage.removeItem("signupSuccess"); // ✅ Clean up
+  }
+}, []);
 
 
   return (

@@ -34,6 +34,7 @@ function App() {
             <Layout>
               <Home /> 
               <AvatarSlider/>
+              <Banner/>
             </Layout>
           }
         />
