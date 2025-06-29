@@ -9,6 +9,7 @@ import "react-toastify/dist/ReactToastify.css";
 import AdminDashboard from "./Component/AdminDash";
 import AdminLogin from "./Component/AdminLogin";
 import AvatarSlider from './Component/MainComponents/Slider/index'
+import Banner from "./Component/MainComponents/Banner";
 import React from "react";
 
 // ✅ Layout component with Navbar
@@ -33,7 +34,6 @@ function App() {
             <Layout>
               <Home /> 
               <AvatarSlider/>
-              <ProductCard/>
             </Layout>
           }
         />
