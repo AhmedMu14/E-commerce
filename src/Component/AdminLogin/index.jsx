@@ -13,7 +13,7 @@ const AdminLogin = () => {
 
     // Dummy admin credentials
     if (email === "abdullah@gmail.com" && password === "123") {
-      localStorage.setItem("user", JSON.stringify({ email }));
+      localStorage.setItem("user",  JSON.stringify({ email }));
       localStorage.setItem("role", "admin");
 
       toast.success("Admin logged in successfully!");

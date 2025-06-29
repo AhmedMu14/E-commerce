@@ -1,37 +1,36 @@
 import React, { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import Cart from "../../MainComponents/Cart/index";
-import { faUser } from "@fortawesome/free-solid-svg-icons";
+import { ChevronDownIcon } from "@heroicons/react/24/outline";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faUser } from "@fortawesome/free-solid-svg-icons";
 import { toast } from "react-toastify";
 
+import CurrencyConverter from "../../MainComponents/CurrencyConverter";
+import Cart from "../../MainComponents/Cart";
 
 const Navbar = () => {
   const [isCartOpen, setIsCartOpen] = useState(false);
   const [user, setUser] = useState(null);
   const navigate = useNavigate();
 
- const handleCartClick = () => {
-  const user = JSON.parse(localStorage.getItem("user"));
+  const handleCartClick = () => {
+    const user = JSON.parse(localStorage.getItem("user"));
 
-  if (!user) {
-    toast.error("Please sign in first.");
+    if (!user) {
+      toast.error("Please sign in first.");
+      setTimeout(() => {
+        navigate("/signin");
+      }, 3000);
+      return;
+    }
 
-    // ⏳ Wait 3 seconds before navigating to /signin
-    setTimeout(() => {
-      navigate("/signin");
-    }, 3000);
+    setIsCartOpen(true);
+  };
 
-    return;
-  }
-  setIsCartOpen(true);
-};
-  // ✅ Keep user state synced with localStorage
   useEffect(() => {
     const storedUser = JSON.parse(localStorage.getItem("user"));
     setUser(storedUser);
 
-    // Optional: watch for storage change in case of multi-tab
     const handleStorageChange = () => {
       setUser(JSON.parse(localStorage.getItem("user")));
     };
@@ -53,7 +52,17 @@ const Navbar = () => {
 
       {/* Right Side */}
       <div className="flex items-center space-x-4">
-        {/* Cart Button */}
+        {/* Currency Converter */}
+        <CurrencyConverter
+          className="ml-2"
+          triggerComponent={
+            <div className="flex items-center space-x-1 cursor-pointer">
+              <ChevronDownIcon className="w-4 h-4 text-gray-600" />
+            </div>
+          }
+        />
+
+        {/* Cart */}
         <div
           className="relative flex items-center space-x-1 cursor-pointer"
           onClick={handleCartClick}
@@ -64,7 +73,7 @@ const Navbar = () => {
           </div>
         </div>
 
-        {/* 👤 User Auth Buttons */}
+        {/* Auth Buttons */}
         {!user ? (
           <Link to="/signin" className="text-gray-600 hover:text-blue-500">
             Sign In
@@ -83,7 +92,7 @@ const Navbar = () => {
           </>
         )}
 
-        {/* Cart Component */}
+        {/* Cart Panel */}
         <Cart isOpen={isCartOpen} onClose={() => setIsCartOpen(false)} />
       </div>
     </div>
