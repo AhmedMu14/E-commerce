@@ -1,8 +1,9 @@
 import React from 'react';
-import image from '../../assets/home.jpg';
+import image from '../../../assets/home.jpg';
 import { MagnifyingGlassIcon } from '@heroicons/react/24/solid'; // Corrected import path for Heroicons v2
 
 const Index = () => {
+
   return (
     <div className="relative w-full h-screen bg-gray-100 flex items-center justify-center">
       {/* Background Image */}
@@ -26,7 +27,7 @@ const Index = () => {
         </p>
 
         {/* Search Box */}
-        <div className="flex justify-center items-center max-w-md mx-auto relative">
+        <div className="flex justify-center items-center max-w-md mx-auto relative mb-6">
           <input
             type="text"
             placeholder="What are you looking for..."
@@ -34,6 +35,8 @@ const Index = () => {
           />
           <MagnifyingGlassIcon className="w-5 h-5 text-gray-400 absolute right-4 top-1/2 transform -translate-y-1/2 cursor-pointer" />
         </div>
+
+        {/* 👇 Shop Now Button (requires login) */}
       </div>
     </div>
   );

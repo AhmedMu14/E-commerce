@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import productDataRaw from "../../Data/data.js"; // Your original product data
+import productDataRaw from "../../../Data/data.js"; // Your original product data
 import ProductDetailModal from "../ProductModelCard/index.jsx";
 
 const ProductCard = ({ product, onImageUpload, onViewDetails }) => {
