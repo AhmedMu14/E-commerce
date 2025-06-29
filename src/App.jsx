@@ -3,6 +3,7 @@ import Navbar from "./Component/MainComponents/navbar/index";
 import SignIn from "./Component/Signin/index";
 import SignUp from "./Component/Signup/index";
 import Home from "./Component/MainComponents/Home/index";
+import ProductCard from "./Component/MainComponents/ProductCard/index";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import AdminDashboard from "./Component/AdminDash";
@@ -31,9 +32,8 @@ function App() {
           path="/"
           element={
             <Layout>
-              {/* <Home /> */}
+              <Home /> 
               <AvatarSlider/>
-              {/* <Banner/> */}
             </Layout>
           }
         />
