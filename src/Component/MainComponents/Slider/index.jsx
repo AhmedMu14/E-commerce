@@ -79,7 +79,7 @@ const AvatarSlider = () => {
               />
             </div>
           ))}
-        </div>
+        </div> 
 
         {/* Right Arrow */}
         <button
