@@ -77,7 +77,7 @@ const AvatarSlider = () => {
                 alt={`Avatar ${index}`}
                 className="w-full h-full object-cover hover:scale-110 transition-transform duration-300"
               />
-            </div>
+            </div> 
           ))}
         </div> 
 
