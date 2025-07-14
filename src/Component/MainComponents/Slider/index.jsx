@@ -80,7 +80,7 @@ const AvatarSlider = () => {
             </div> 
           ))}
         </div> 
- "
+ "   
  "
         {/* Right Arrow */}
         <button
