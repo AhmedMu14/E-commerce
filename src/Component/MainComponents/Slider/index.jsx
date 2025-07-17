@@ -81,7 +81,7 @@ const AvatarSlider = () => {
           ))}   
         </div> 
  "   
- "
+ "  
         {/* Right Arrow */}
         <button
           onClick={() => scroll("right")}
