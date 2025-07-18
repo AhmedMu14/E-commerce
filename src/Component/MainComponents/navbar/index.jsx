@@ -6,7 +6,7 @@ import { faUser } from "@fortawesome/free-solid-svg-icons";
 import { toast } from "react-toastify";
 import CurrencyConverter from "../../MainComponents/CurrencyConverter";
 import Cart from "../../MainComponents/Cart";
-
+   
 const Navbar = () => {
   const [isCartOpen, setIsCartOpen] = useState(false);
   const [user, setUser] = useState(null);
