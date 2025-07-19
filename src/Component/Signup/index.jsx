@@ -2,23 +2,29 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 
-
 const SignUp = () => {
+  const [firstName, setFirstName] = useState(""); // 👈 New
+  const [lastName, setLastName] = useState("");   // 👈 New
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
 
+ // Signup ke andar
 const handleSignup = (e) => {
   e.preventDefault();
 
-  if (!email || !password) {
+  if (!firstName || !lastName || !email || !password) {
     toast.error("Please fill all fields");
     return;
   }
 
-  const user = { email, password };
+  const user = { firstName, lastName, email, password };
   localStorage.setItem("user", JSON.stringify(user));
-  toast.success("Signup successful!");
+
+  // ✅ store a message flag
+  localStorage.setItem("signupSuccess", "true");
+
+  navigate("/signin");
 };
 
 
@@ -41,6 +47,33 @@ const handleSignup = (e) => {
         <div className="max-w-md w-full p-8 shadow-lg rounded">
           <h2 className="text-3xl font-bold mb-6 text-center">Sign Up</h2>
           <div className="space-y-4">
+            {/* First Name */}
+            <div>
+              <label className="block text-gray-700">First Name</label>
+              <input
+                type="text"
+                className="w-full border border-gray-300 p-2 rounded"
+                placeholder="Enter your first name"
+                value={firstName}
+                onChange={(e) => setFirstName(e.target.value)}
+                required
+              />
+            </div>
+
+            {/* Last Name */}
+            <div>
+              <label className="block text-gray-700">Last Name</label>
+              <input
+                type="text"
+                className="w-full border border-gray-300 p-2 rounded"
+                placeholder="Enter your last name"
+                value={lastName}
+                onChange={(e) => setLastName(e.target.value)}
+                required
+              />
+            </div>
+
+            {/* Email */}
             <div>
               <label className="block text-gray-700">Email</label>
               <input
@@ -52,6 +85,8 @@ const handleSignup = (e) => {
                 required
               />
             </div>
+
+            {/* Password */}
             <div>
               <label className="block text-gray-700">Password</label>
               <input
@@ -63,12 +98,16 @@ const handleSignup = (e) => {
                 required
               />
             </div>
+
+            {/* Submit Button */}
             <button
               type="submit"
               className="w-full bg-green-600 text-white p-2 rounded hover:bg-green-700"
             >
               Sign Up
             </button>
+
+            {/* Sign In Link */}
             <p className="text-sm text-center mt-2">
               Already have an account?{" "}
               <span
