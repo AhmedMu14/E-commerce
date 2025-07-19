@@ -34,6 +34,10 @@ function App() {
             <Layout>
               <Home /> 
               <AvatarSlider/>
+
+              <ProductCard/>
+              <Banner />
+
               <Banner/>
             </Layout>
           }

@@ -4,14 +4,25 @@ import { ChevronDownIcon } from "@heroicons/react/24/outline";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUser } from "@fortawesome/free-solid-svg-icons";
 import { toast } from "react-toastify";
+
+import { useSelector } from 'react-redux';
+
 import CurrencyConverter from "../../MainComponents/CurrencyConverter";
 import Cart from "../../MainComponents/Cart";
    
 const Navbar = () => {
   const [isCartOpen, setIsCartOpen] = useState(false);
   const [user, setUser] = useState(null);
+
+  const navigate = useNavigate();
+  const cartItems = useSelector((state) => state.cart.items);
+  const itemCount = cartItems.length;
+
+
+
   const [toastShown, setToastShown] = useState(false);
   const navigate = useNavigate()
+
 
 const handleCartClick = () => {
   const user = JSON.parse(localStorage.getItem("user"));
@@ -75,19 +86,20 @@ const handleCartClick = () => {
         >
           <span className="hidden md:block text-gray-600">Cart</span>
           <div className="absolute -top-2 -right-2 bg-teal-500 text-white rounded-full text-xs w-5 h-5 flex items-center justify-center">
-            0
+            {itemCount}
           </div>
         </div>
 
         {/* Auth Buttons */}
         {!user ? (
-          <Link to="/signin" className="text-gray-600 hover:text-blue-500">
+          <Link to="/signin" className="text-gray-600 hover:text-gray-400 flex items-center gap-x-2">
+            <FontAwesomeIcon icon={faUser} className="text-xl"/>
             Sign In
           </Link>
         ) : (
           <>
             <Link to="/profile" className="text-gray-600 hover:text-green-600">
-              <FontAwesomeIcon icon={faUser} className="text-xl" />
+                
             </Link>
             <button
               onClick={handleLogout}

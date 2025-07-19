@@ -1,6 +1,9 @@
 import React, { useEffect, useState } from "react";
+import { useDispatch } from "react-redux";
+import { addToCart } from "../../Redux/CardSlice"; 
 
 const ProductDetail = ({ product, onClose }) => {
+  const dispatch = useDispatch();
   const [localProduct, setLocalProduct] = useState(product);
   const [quantity, setQuantity] = useState(1);
 
@@ -13,6 +16,12 @@ const ProductDetail = ({ product, onClose }) => {
       }
     }
   }, [product]);
+  
+  const handleAddToCart = () => {
+    dispatch(addToCart({ ...localProduct, quantity }));
+    onClose(); // ✅ Optional: close modal after adding
+  };
+
 
   if (!localProduct) return null;
 
@@ -73,7 +82,7 @@ const ProductDetail = ({ product, onClose }) => {
               </div>
             </div>
             <div className="mt-4 flex items-center space-x-2">
-              <button className="px-4 py-2 bg-green-600 text-white rounded hover:bg-green-700">Add to Cart</button>
+              <button onClick={handleAddToCart} className="px-4 py-2 bg-green-600 text-white rounded hover:bg-green-700">Add to Cart</button>
               <button className="px-4 py-2 border rounded">Wishlist</button>
               <button className="px-4 py-2 border rounded">Share</button>
             </div>
