@@ -20,7 +20,7 @@ const productData = [
     {
         id: 3,
         name: "Fresh Express Iceberg Garden Salad Blend",
-        price: "$25.00 - $40.00",
+        price: "$$40.00",
         unit: "1 Bag",
         onSale: false,
         sizes: ["12oz", "24oz", "36oz"],
@@ -46,7 +46,7 @@ const productData = [
     {
         id: 6,
         name: "Organic Firm Fresh White Lettuce",
-        price: "$3.00 - $5.00",
+        price: "$5.00",
         unit: "1 each",
         onSale: false,
         sizes: ["12oz", "24oz", "36oz"],
@@ -55,7 +55,7 @@ const productData = [
     {
         id: 7,
         name: "Fresh Organic Broccoli",
-        price: "$5.00 - $8.00",
+        price: "$8.00",
         unit: "1 each",
         onSale: false,
         sizes: ["12oz", "24oz", "36oz"],
@@ -64,7 +64,7 @@ const productData = [
     {
         id: 8,
         name: "Great Value Tortilla Chips, Cantina Style",
-        price: "$5.00 - $15.00",
+        price: "$15.00",
         unit: "1 each",
         onSale: false,
         sizes: ["Small", "Medium", "Large"],
@@ -82,7 +82,7 @@ const productData = [
     {
         id: 10,
         name: "Lay's Kettle Cooked Jalapeno Potato Chips  ",
-        price: "$5.00 - $15.00",
+        price: "$15.00",
         unit: "1 each",
         onSale: false,
         sizes: ["Small", "Medium", "Large"],
@@ -91,7 +91,7 @@ const productData = [
     {
         id: 11,
         name: "Lay's Bar-B-Que Potato Chips",
-        price: "$5.00 - $15.00",
+        price: "$15.00",
         unit: "1 each",
         onSale: false,
         sizes: ["Small", "Medium", "Large"],
@@ -100,7 +100,7 @@ const productData = [
     {
         id: 12,
         name: "Chester's Fries Flamen Hot Corn Potato Snacks",
-        price: "$5.00 - $15.00",
+        price: "$15.00",
         unit: "1 each",
         onSale: false,
         sizes: ["Small", "Medium", "Large"],
@@ -109,7 +109,7 @@ const productData = [
     {
         id: 13,
         name: "Lay’s Kettle Cooked Mesquite Potato Chips",
-        price: "$15.00 - $25.00",
+        price: "$25.00",
         unit: "1 each",
         onSale: false,
         sizes: ["Small", "Medium", "Large"],
@@ -118,7 +118,7 @@ const productData = [
     {
         id: 14,
         name: "Ruffles Party Size Cheddar & Sour Cream",
-        price: "$5.00 - $15.00",
+        price: "$15.00",
         unit: "1 each",
         onSale: false,
         sizes: ["Small", "Medium", "Large"],
@@ -127,7 +127,7 @@ const productData = [
     {
         id: 15,
         name: "Calavo Fresh Avocados",
-        price: "$25.00 - $40.00",
+        price: "$40.00",
         unit: "1 bag",
         onSale: false,
         sizes: ["12oz", "24oz", "36oz"],
@@ -136,7 +136,7 @@ const productData = [
     {
         id: 16,
         name: "Fresh Cilantro",
-        price: "$25.00 - $40.00",
+        price: "$40.00",
         unit: "1 bag",
         onSale: false,
         sizes: ["12oz", "24oz", "36oz"],
@@ -179,7 +179,7 @@ const productData = [
     {
         id: 21,
         name: "Fresh Express Iceberg Garden Salad Blend",
-        price: "$25.00 - $40.00",
+        price: "$40.00",
         unit: "1 each",
         onSale: false,
         sizes: ["12oz", "24oz", "36oz"],
