@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect,  useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { ChevronDownIcon } from "@heroicons/react/24/outline";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -14,7 +14,7 @@ const Navbar = () => {
   const [isCartOpen, setIsCartOpen] = useState(false);
   const [user, setUser] = useState(null);
 
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
   const cartItems = useSelector((state) => state.cart.items);
   const itemCount = cartItems.length;
 

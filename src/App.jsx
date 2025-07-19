@@ -38,7 +38,7 @@ function App() {
               <ProductCard/>
               <Banner />
 
-              <Banner/>
+              {/* <Banner/> */}
             </Layout>
           }
         />
