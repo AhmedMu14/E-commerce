@@ -35,7 +35,7 @@ function App() {
               <Home /> 
               <AvatarSlider/>
 
-              <ProductCard/>
+              <ProductCard/> 
               <Banner />
 
               {/* <Banner/> */}
