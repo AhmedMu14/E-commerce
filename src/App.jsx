@@ -41,10 +41,10 @@ function App() {
               {/* <Banner/> */}
             </Layout>
           }
-        />  
+        />    
       </Routes>
     </BrowserRouter>
-  );
+  );  
 }
 
 export default App;
