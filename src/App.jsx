@@ -16,7 +16,7 @@ import React from "react";
 const Layout = ({ children }) => (
   <>
     <Navbar />
-    {children}
+    {children}  
   </>
 );
 function App() {
