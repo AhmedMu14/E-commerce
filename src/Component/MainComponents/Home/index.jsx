@@ -1,5 +1,5 @@
 import React from 'react';
-import image from '../../../assets/home.jpg';
+import image from "../../../assets/home.jpg";
 import { MagnifyingGlassIcon } from '@heroicons/react/24/solid'; // Corrected import path for Heroicons v2
 
 const Index = () => {
