@@ -3,8 +3,8 @@ import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 
 const SignUp = () => {
-  const [firstName, setFirstName] = useState(""); // 👈 New
-  const [lastName, setLastName] = useState("");   // 👈 New
+  const [firstName, setFirstName] = useState(""); 
+  const [lastName, setLastName] = useState("");   
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
@@ -15,7 +15,7 @@ const handleSignup = (e) => {
 
   if (!firstName || !lastName || !email || !password) {
     toast.error("Please fill all fields");
-    return;
+    return; 
   }
 
   const user = { firstName, lastName, email, password };
