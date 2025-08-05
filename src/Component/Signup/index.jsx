@@ -16,7 +16,7 @@ const handleSignup = (e) => {
   if (!firstName || !lastName || !email || !password) {
     toast.error("Please fill all fields");
     return; 
-  }
+  } 
 
   const user = { firstName, lastName, email, password };
   localStorage.setItem("user", JSON.stringify(user));
