@@ -13,16 +13,16 @@ const SignUp = () => {
 const handleSignup = (e) => {
   e.preventDefault();
 
-  if (!firstName || !lastName || !email || !password) {
-    toast.error("Please fill all fields");
-    return; 
-  } 
+  // if (!firstName || !lastName || !email || !password) {
+  //   toast.error("Please fill all fields");
+  //   return; 
+  // } 
 
   const user = { firstName, lastName, email, password };
   localStorage.setItem("user", JSON.stringify(user));
 
   // ✅ store a message flag
-  localStorage.setItem("signupSuccess", "true");
+  // localStorage.setItem("signupSuccess", "true");
 
   navigate("/signin");
 };
