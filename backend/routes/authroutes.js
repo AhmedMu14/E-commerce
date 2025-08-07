@@ -5,7 +5,7 @@ const User = require("../Model/User");
 
 const router = express.Router();
 
-// ✅ Let Mongoose middleware handle hashing
+// ✅ Let Mongoose middleware handle hashi
 router.post("/signup", async (req, res) => {
   const { name, email, password } = req.body;
 
