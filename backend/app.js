@@ -21,7 +21,7 @@ mongoose.connect(MONGO_URI, {
 })
 .then(() => console.log("✅ MongoDB connected"))
 .catch(err => console.error("❌ MongoDB error:", err));
-
+  
 app.get("/", (req, res) => {
   res.send("Server chal raha hai bhai 🚀");
 });
