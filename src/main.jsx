@@ -10,9 +10,8 @@ import './index.css';
 // import 'primeflex/primeflex.css';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
-  <StrictMode>
     <Provider store={store}>
       <App />
     </Provider>
-  </StrictMode>
+
 );

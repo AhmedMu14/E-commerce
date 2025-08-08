@@ -1,39 +1,35 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useNavigate, Link } from "react-router-dom";
-import { useEffect } from 'react';
 import { toast } from "react-toastify";
-
 
 const Signin = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
 
-
- 
+  // ✅ Run only once to show signup success alert
+  useEffect(() => {
+    const signupSuccess = localStorage.getItem("signupSuccess");
+    if (signupSuccess === "true") {
+      toast.success("Signup successful!");
+      localStorage.removeItem("signupSuccess"); // Remove so it won't repeat
+    }
+  }, []);
 
   const handleSignin = (e) => {
-  e.preventDefault();
-  const user = JSON.parse(localStorage.getItem("user"));
+    e.preventDefault();
+    const user = JSON.parse(localStorage.getItem("user"));
 
-  if (user?.email === email && user?.password === password) {
-    toast.success("Login Successful");
-    navigate("/");
-  } else {
-    toast.error("Invalid Credentials");
-  }
-};
-
-
-useEffect(() => {
-  const signupSuccess = localStorage.getItem("signupSuccess");
-
-  if (signupSuccess === "true") {
-    toast.success("Signup successful!"); // ✅ Show alert
-    localStorage.removeItem("signupSuccess"); // ✅ Clean up
-  }
-}, []);
-
+    if (user?.email === email && user?.password === password) {
+      // ✅ Show login success only after correct credentials
+      setTimeout(() => {
+        toast.success("Login Successful");
+        navigate("/");
+      }, 300); // Slight delay so both alerts don't overlap
+    } else {
+      toast.error("Invalid Credentials");
+    }
+  };
 
   return (
     <div className="min-h-screen flex">
@@ -83,7 +79,6 @@ useEffect(() => {
               Sign In
             </button>
 
-            {/* 🔗 Link to Sign Up */}
             <p className="text-sm text-center mt-2">
               Don't have an account?{" "}
               <Link to="/signup" className="text-blue-600 underline">
