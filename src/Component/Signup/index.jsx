@@ -159,7 +159,7 @@ const SignUp = () => {
           </Formik>
         </div>
       </div>
-    </div>
+    </div> 
   );
 };
 
