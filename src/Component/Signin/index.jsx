@@ -1,33 +1,26 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import { toast } from "react-toastify";
+import axios from "axios";
 
 const Signin = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
 
-  // ✅ Run only once to show signup success alert
-  useEffect(() => {
-    const signupSuccess = localStorage.getItem("signupSuccess");
-    if (signupSuccess === "true") {
-      toast.success("Signup successful!");
-      localStorage.removeItem("signupSuccess"); // Remove so it won't repeat
-    }
-  }, []);
-
-  const handleSignin = (e) => {
+  const handleSignin = async (e) => {
     e.preventDefault();
-    const user = JSON.parse(localStorage.getItem("user"));
+    try {
+      const res = await axios.post(
+        "http://localhost:5000/login",
+        { email, password },
+        { withCredentials: true }
+      );
 
-    if (user?.email === email && user?.password === password) {
-      // ✅ Show login success only after correct credentials
-      setTimeout(() => {
-        toast.success("Login Successful");
-        navigate("/");
-      }, 300); // Slight delay so both alerts don't overlap
-    } else {
-      toast.error("Invalid Credentials");
+      toast.success(res.data.message || "Login Successful");
+      navigate("/");
+    } catch (err) {
+      toast.error(err.response?.data?.error || "Invalid Credentials");
     }
   };
 

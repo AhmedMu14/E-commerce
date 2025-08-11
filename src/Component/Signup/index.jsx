@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
+import axios from "axios";
 
 const SignUp = () => {
   const navigate = useNavigate();
@@ -15,7 +16,9 @@ const SignUp = () => {
     lastName: Yup.string()
       .min(2, "Last name too short")
       .required("Last name is required"),
-    email: Yup.string().email("Invalid email").required("Email is required"),
+    email: Yup.string()
+      .email("Invalid email")
+      .required("Email is required"),
     password: Yup.string()
       .min(6, "Password must be at least 6 characters")
       .required("Password is required"),
@@ -45,24 +48,23 @@ const SignUp = () => {
               password: "",
             }}
             validationSchema={SignupSchema}
-            onSubmit={(values, { setSubmitting, resetForm }) => {
-              setSubmitting(true);
+            onSubmit={async (values, { setSubmitting, resetForm }) => {
+              try {
+                const res = await axios.post(
+                  "http://localhost:5000/signup",
+                  values,
+                  { withCredentials: true }
+                );
 
-              // Simulate API delay
-              setTimeout(() => {
-                // Save user data
-                localStorage.setItem("user", JSON.stringify(values));
-                toast.success("Signup Successful!");
-
+                toast.success(res.data.message || "Signup successful");
                 resetForm();
-                setSubmitting(false);
-
-                // Remove old flags to avoid duplicate alerts on Signin
-                localStorage.removeItem("signupDone");
-
-                // Navigate to Sign In
                 navigate("/signin");
-              }, 1500);
+              } catch (err) {
+                toast.error(
+                  err.response?.data?.error || "Signup failed"
+                );
+              }
+              setSubmitting(false);
             }}
           >
             {({ isSubmitting, isValid }) => (
@@ -159,7 +161,7 @@ const SignUp = () => {
           </Formik>
         </div>
       </div>
-    </div> 
+    </div>
   );
 };
 
