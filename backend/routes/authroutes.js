@@ -98,7 +98,7 @@
           httpOnly: true,
           sameSite: "Strict",
           secure: false,
-        });
+        });    
         res.json({ message: "Logged out successfully" });
       });
 
