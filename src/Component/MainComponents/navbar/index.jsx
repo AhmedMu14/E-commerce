@@ -55,7 +55,7 @@ const handleCartClick = () => {
     window.addEventListener("storage", handleStorageChange);
     return () => window.removeEventListener("storage", handleStorageChange);
   }, []);
-       
+          
   const handleLogout = () => {
     localStorage.removeItem("user");
     // localStorage.removeItem("signupSuccess"); 
