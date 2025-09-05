@@ -58,7 +58,7 @@ const handleCartClick = () => {
           
   const handleLogout = () => {
     localStorage.removeItem("user");
-    // localStorage.removeItem("signupSuccess"); 
+    // localStorage.removeItem("signupSuccess "); 
     setUser(null);
     navigate("/signin");
   };
