@@ -26,7 +26,7 @@ const Navbar = () => {
 
 const handleCartClick = () => {
   const user = JSON.parse(localStorage.getItem("user"));
-
+ 
   if (!user) {
     if (!toastShown) {
       setToastShown(true); // 🛑 prevent re-showing
