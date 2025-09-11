@@ -23,7 +23,7 @@ const Navbar = () => {
   const [toastShown, setToastShown] = useState(false);
   const navigate = useNavigate()
 
-
+ 
 const handleCartClick = () => {
   const user = JSON.parse(localStorage.getItem("user"));
  
