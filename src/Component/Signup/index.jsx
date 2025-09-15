@@ -16,9 +16,7 @@ const SignUp = () => {
     lastName: Yup.string()
       .min(2, "Last name too short")
       .required("Last name is required"),
-    email: Yup.string()
-      .email("Invalid email")
-      .required("Email is required"),
+    email: Yup.string().email("Invalid email").required("Email is required"),
     password: Yup.string()
       .min(6, "Password must be at least 6 characters")
       .required("Password is required"),
@@ -50,19 +48,26 @@ const SignUp = () => {
             validationSchema={SignupSchema}
             onSubmit={async (values, { setSubmitting, resetForm }) => {
               try {
+                const payload = {
+                  name: `${values.firstName} ${values.lastName}`, // combine name
+                  email: values.email,
+                  password: values.password,
+                };
+                console.log("👉 Sending payload:", payload);
+
                 const res = await axios.post(
                   "http://localhost:5000/signup",
-                  values,
-                  { withCredentials: true }
+                  payload,
+                  {
+                    withCredentials: true,
+                  }
                 );
 
                 toast.success(res.data.message || "Signup successful");
                 resetForm();
                 navigate("/signin");
               } catch (err) {
-                toast.error(
-                  err.response?.data?.error || "Signup failed"
-                );
+                toast.error(err.response?.data?.error || "Signup failed");
               }
               setSubmitting(false);
             }}
