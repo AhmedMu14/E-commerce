@@ -60,6 +60,7 @@ const SignUp = () => {
                   payload,
                   {
                     withCredentials: true,
+                    
                   }
                 );
 
@@ -117,7 +118,7 @@ const SignUp = () => {
                   />
                   <ErrorMessage
                     name="email"
-                    component="p"
+                    // component="p"
                     className="text-red-500 text-sm"
                   />
                 </div>
