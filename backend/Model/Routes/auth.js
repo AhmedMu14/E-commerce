@@ -47,10 +47,36 @@ router.post("/login", async (req, res) => {
     // Create JWT token
     const token = jwt.sign({ id: user._id }, JWT_SECRET, { expiresIn: "1h" });
 
-    res.json({ message: "Login successful", token });
+    // Send token in cookie
+    res.cookie("token", token, {
+      httpOnly: true,   
+      secure: false,    
+      sameSite: "strict",
+      maxAge: 60 * 60 * 1000 // 1 hour
+    });
+
+    res.json({ message: "Login successful" });
   } catch (err) {
     res.status(500).json({ error: err.message });
- }
+  }
 });
+
+
+router.post("/logout", (req, res) => {
+  res.clearCookie("token", { httpOnly: true, sameSite: "lax" });
+  res.json({ message: "Logged out successfully" });
+});
+
+// Login check karay ga agar token ha tu 
+router.get("/me", (req, res) => {
+  try {
+    const decoded = jwt.verify(req.cookies.token || "", JWT_SECRET);
+    res.json({ user: decoded });
+  } catch {
+    res.status(401).json({ message: "Not authenticated" });
+  }
+});
+
+
 
 module.exports = router;

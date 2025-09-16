@@ -3,6 +3,7 @@ const cors = require("cors");
 const mongoose = require("mongoose");
 require("dotenv").config();
 const authRoutes = require("./Model/Routes/auth");
+const cookieParser = require("cookie-parser");
 
 const app = express();
 const PORT = 5000;
@@ -10,11 +11,10 @@ const PORT = 5000;
 // Middleware
 app.use(cors({
   origin: "http://localhost:5173",   // frontend ka URL
-  methods: ["GET"],
   credentials: true
 }));
 app.use(express.json());
-
+app.use(cookieParser());
 
 mongoose
   .connect(process.env.DATABASE_URL, {
