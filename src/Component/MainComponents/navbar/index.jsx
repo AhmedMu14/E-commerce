@@ -4,46 +4,33 @@ import { ChevronDownIcon } from "@heroicons/react/24/outline";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUser } from "@fortawesome/free-solid-svg-icons";
 import { toast } from "react-toastify";
-
 import { useSelector } from 'react-redux';
 
 import CurrencyConverter from "../../MainComponents/CurrencyConverter";
 import Cart from "../../MainComponents/Cart";
-   
 const Navbar = () => {
   const [isCartOpen, setIsCartOpen] = useState(false);
   const [user, setUser] = useState(null);
-
   const navigate = useNavigate();
   const cartItems = useSelector((state) => state.cart.items);
   const itemCount = cartItems.length;
 
 
 
-  const [toastShown, setToastShown] = useState(false);
-  const navigate = useNavigate()
+  const handleCartClick = () => {
+    const user = JSON.parse(localStorage.getItem("user"));
 
-
-const handleCartClick = () => {
-  const user = JSON.parse(localStorage.getItem("user"));
-
-  if (!user) {
-    if (!toastShown) {
-      setToastShown(true); // 🛑 prevent re-showing
+    if (!user) {
       toast.error("Please sign in first.");
-
       setTimeout(() => {
-        setToastShown(false); // 🔁 allow toast next time
         navigate("/signin");
       }, 3000);
+      return;
     }
-    return;
-  }
 
-  setIsCartOpen(true);
-};
+    setIsCartOpen(true);
+  };
 
-  // ✅ Keep user state synced with localStorage
   useEffect(() => {
     const storedUser = JSON.parse(localStorage.getItem("user"));
     setUser(storedUser);
