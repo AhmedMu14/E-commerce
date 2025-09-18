@@ -6,8 +6,6 @@ import Home from "./Component/MainComponents/Home/index";
 import ProductCard from "./Component/MainComponents/ProductCard/index";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import AdminDashboard from "./Component/AdminDash";
-import AdminLogin from "./Component/AdminLogin";
 import AvatarSlider from './Component/MainComponents/Slider/index'
 import Banner from "./Component/MainComponents/Banner";
 import React from "react";
@@ -37,6 +35,7 @@ function App() {
               <AvatarSlider/>
               <ProductCard/> 
               <Banner /> 
+              <br />
               <Footer/>
 
               {/* <Banner/> */}

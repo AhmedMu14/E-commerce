@@ -53,7 +53,7 @@ const SignUp = () => {
                   email: values.email,
                   password: values.password,
                 };
-                console.log("👉 Sending payload:", payload);
+                // console.log("👉 Sending payload:", payload);
 
                 const res = await axios.post(
                   "http://localhost:5000/signup",
