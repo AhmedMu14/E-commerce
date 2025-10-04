@@ -1,6 +1,6 @@
 import React from "react";
 
-function Banner() {
+function Banner() {     
   return (
     <div className="relative w-full flex justify-center">
       {/* Container with margin and max width */}
