@@ -33,7 +33,7 @@ function App() {
             <Layout>  
               <Home /> 
               <AvatarSlider/>
-              <ProductCard/> 
+              <ProductCard/>     
               <Banner /> 
               <br />
               <Footer/>
