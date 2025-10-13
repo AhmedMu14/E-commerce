@@ -21,7 +21,7 @@ const Layout = ({ children }) => (
 function App() {
   return (
     <BrowserRouter>
-      <ToastContainer position="top-center" /> {/* ✅ global and only once */}
+      <ToastContainer position="top-center" /> {/* ✅ global and only onc   e */}
       <Routes>
         {/* <Route path="/admin-login" element={<AdminLogin />} /> */}
         <Route path="/signin" element={<SignIn />} />
