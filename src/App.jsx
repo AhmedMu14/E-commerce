@@ -14,7 +14,7 @@ import  Footer  from "./Component/Footer/index";
 // ✅ Layout component with Navbar
 const Layout = ({ children }) => (
   <>
-    <Navbar />
+    <Navbar />   
     {children}  
   </>            
 );
