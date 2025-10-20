@@ -19,7 +19,7 @@ const Layout = ({ children }) => (
   </>            
 );
 function App() {
-  return (     
+  return (           
     <BrowserRouter>                
       <ToastContainer position="top-center" /> {/* ✅ global and only onc   e */}
       <Routes>
