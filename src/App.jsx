@@ -31,7 +31,7 @@ function App() {
           path="/"
           element={
             <Layout>      
-              <Home /> 
+              <Home />      
               <AvatarSlider/>
               <ProductCard/>     
               <Banner /> 
