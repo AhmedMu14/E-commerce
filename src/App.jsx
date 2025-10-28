@@ -22,7 +22,7 @@ function App() {
   return (           
     <BrowserRouter>                
       <ToastContainer position="top-center" /> {/* ✅ global and only onc   e */}
-      <Routes>
+      <Routes>     
         {/* <Route path="/admin-lo gin" element={<AdminLogin />} /> */}
         <Route path="/signin" element={<SignIn />} />
         <Route path="/signup" element={<SignUp />} />
