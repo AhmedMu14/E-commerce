@@ -3,7 +3,7 @@ import Navbar from "./Component/MainComponents/navbar/index";
 import SignIn from "./Component/Signin/index";
 import SignUp from "./Component/Signup/index";
 import Home from "./Component/MainComponents/Home/index";
-import ProductCard from "./Component/MainComponents/ProductCard/index";
+import UsersList from "./Component/MainComponents/ProductCard/index";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import AvatarSlider from './Component/MainComponents/Slider/index'
@@ -31,9 +31,9 @@ function App() {
           path="/"
           element={
             <Layout>         
-              <Home />      
-              <AvatarSlider/>
-              <ProductCard/>     
+              {/* <Home />       */}
+              {/* <AvatarSlider/> */}
+              <UsersList/>     
               <Banner /> 
               <br />
               <Footer/>
