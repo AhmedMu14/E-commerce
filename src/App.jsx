@@ -25,13 +25,13 @@ function App() {
       <Routes>     
         {/* <Route path="/admin-lo gin" element={<AdminLogin />} /> */}
         <Route path="/signin" element={<SignIn />} />
-        <Route path="/signup" element={<SignUp />} />
+        <Route    path="/signup" element={<SignUp />} />
         {/* <Route path="/admin-dashboard" element={<AdminDashboard />} /> */}
-        <Route
+        <Route 
           path="/"
           element={
             <Layout>         
-              {/* <Home />       */}
+              {/* <Home />       */}   
               {/* <AvatarSlider/> */}
               <UsersList/>     
               <Banner /> 
