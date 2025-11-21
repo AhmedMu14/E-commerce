@@ -1,11 +1,18 @@
 import React, { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
+<<<<<<< HEAD
+import { useSelector } from 'react-redux';
+
+import CurrencyConverter from "../../MainComponents/CurrencyConverter";
+import Cart from "../../MainComponents/Cart";
+=======
 import { useSelector } from "react-redux";
 import CurrencyConverter from "../../MainComponents/CurrencyConverter";
 import Cart from "../../MainComponents/Cart";
 import axios from "axios";
 
+>>>>>>> 11e2306d793a2afe975b4d1cd1d3fe0ae39a7783
 const Navbar = () => {
   const [isCartOpen, setIsCartOpen] = useState(false);
   const [user, setUser] = useState(null);
@@ -13,7 +20,26 @@ const Navbar = () => {
   const cartItems = useSelector((state) => state.cart.items);
   const itemCount = cartItems.length;
 
+<<<<<<< HEAD
+
+
+  const handleCartClick = () => {
+    const user = JSON.parse(localStorage.getItem("user"));
+
+    if (!user) {
+      toast.error("Please sign in first.");
+      setTimeout(() => {
+        navigate("/signin");
+      }, 3000);
+      return;
+    }
+
+    setIsCartOpen(true);
+  };
+
+=======
   // ✅ Check login on mount
+>>>>>>> 11e2306d793a2afe975b4d1cd1d3fe0ae39a7783
   useEffect(() => {
     axios.get("http://localhost:5000/me", { withCredentials: true })
       .then(res => setUser(res.data.user))
