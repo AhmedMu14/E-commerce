@@ -11,12 +11,13 @@ import AdminLogin from "./Component/AdminLogin";
 import AvatarSlider from './Component/MainComponents/Slider/index'
 import Banner from "./Component/MainComponents/Banner";
 import React from "react";
+import  Footer  from "./Component/Footer/index";
 
 // ✅ Layout component with Navbar
 const Layout = ({ children }) => (
   <>
     <Navbar />
-    {children}
+    {children}  
   </>
 );
 function App() {
@@ -24,27 +25,27 @@ function App() {
     <BrowserRouter>
       <ToastContainer position="top-center" /> {/* ✅ global and only once */}
       <Routes>
-        <Route path="/admin-login" element={<AdminLogin />} />
+        {/* <Route path="/admin-login" element={<AdminLogin />} /> */}
         <Route path="/signin" element={<SignIn />} />
         <Route path="/signup" element={<SignUp />} />
-        <Route path="/admin-dashboard" element={<AdminDashboard />} />
+        {/* <Route path="/admin-dashboard" element={<AdminDashboard />} /> */}
         <Route
           path="/"
           element={
             <Layout>
               <Home /> 
               <AvatarSlider/>
+              <ProductCard/> 
+              <Banner /> 
+              <Footer/>
 
-              <ProductCard/>
-              <Banner />
-
-              <Banner/>
+              {/* <Banner/> */}
             </Layout>
           }
-        />
+        />    
       </Routes>
     </BrowserRouter>
-  );
+  );  
 }
 
 export default App;

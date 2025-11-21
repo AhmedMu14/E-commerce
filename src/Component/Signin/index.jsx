@@ -1,39 +1,28 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
-import { useEffect } from 'react';
 import { toast } from "react-toastify";
-
+import axios from "axios";
 
 const Signin = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
 
+  const handleSignin = async (e) => {
+    e.preventDefault();
+    try {
+      const res = await axios.post(
+        "http://localhost:5000/login",
+        { email, password },
+        { withCredentials: true }
+      );
 
- 
-
-  const handleSignin = (e) => {
-  e.preventDefault();
-  const user = JSON.parse(localStorage.getItem("user"));
-
-  if (user?.email === email && user?.password === password) {
-    toast.success("Login Successful");
-    navigate("/");
-  } else {
-    toast.error("Invalid Credentials");
-  }
-};
-
-
-useEffect(() => {
-  const signupSuccess = localStorage.getItem("signupSuccess");
-
-  if (signupSuccess === "true") {
-    toast.success("Signup successful!"); // ✅ Show alert
-    localStorage.removeItem("signupSuccess"); // ✅ Clean up
-  }
-}, []);
-
+      toast.success(res.data.message || "Login Successful");
+      navigate("/");
+    } catch (err) {
+      toast.error(err.response?.data?.error || "Invalid Credentials");
+    }
+  };
 
   return (
     <div className="min-h-screen flex">
@@ -78,12 +67,11 @@ useEffect(() => {
 
             <button
               type="submit"
-              className="w-full bg-blue-600 text-white p-2 rounded hover:bg-blue-700"
+              className="w-full bg-green-600 text-white p-2 rounded hover:bg-green-600"
             >
               Sign In
             </button>
 
-            {/* 🔗 Link to Sign Up */}
             <p className="text-sm text-center mt-2">
               Don't have an account?{" "}
               <Link to="/signup" className="text-blue-600 underline">
