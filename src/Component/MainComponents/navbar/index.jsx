@@ -1,4 +1,32 @@
-import React from 'react'
+
+const Navbar = () => {
+  const [isCartOpen, setIsCartOpen] = useState(false);
+  const [user, setUser] = useState(null);
+  const navigate = useNavigate();
+  const cartItems = useSelector((state) => state.cart.items);
+  const itemCount = cartItems.length;
+
+
+  useEffect(() => {
+    axios.get("http://localhost:5000/me", { withCredentials: true })
+      .then(res => setUser(res.data.user))
+      .catch(() => setUser(null));
+  }, []);
+
+  const handleCartClick = () => {
+    if (!user) {
+      toast.error("Please sign in first.");
+      navigate("/signin");
+      return;
+    }
+    setIsCartOpen(true);
+  };
+
+  const handleLogout = () => {
+    axios.post("http://localhost:5000/logout", {}, { withCredentials: true });
+    setUser(null);
+    navigate("/signin");
+  };
 
 function index() {
   return (
