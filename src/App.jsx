@@ -1,15 +1,15 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Navbar from "./Component/MainComponents/navbar/index";
-import SignIn from "./Component/Signin/index";
-import SignUp from "./Component/Signup/index";
-import Home from "./Component/MainComponents/Home/index";
-import UsersList from "./Component/MainComponents/ProductCard/index";
+// import SignIn from "./Component/Signin/index";
+// import SignUp from "./Component/Signup/index";
+// import Home from "./Component/MainComponents/Home/index";
+// import UsersList from "./Component/MainComponents/ProductCard/index";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import AvatarSlider from './Component/MainComponents/Slider/index'
-import Banner from "./Component/MainComponents/Banner";
+// import AvatarSlider from './Component/MainComponents/Slider/index'
+// import Banner from "./Component/MainComponents/Banner";
 import React from "react";
-import  Footer  from "./Component/Footer/index";
+// import  Footer  from "./Component/Footer/index";
 
 // ✅ Layout component with Navbar
 const Layout = ({ children }) => (
@@ -24,8 +24,8 @@ function App() {
       <ToastContainer position="top-center" /> {/* ✅ global and only onc   e */}
       <Routes>     
         {/* <Route path="/admin-lo gin" element={<AdminLogin />} /> */}
-        <Route path="/signin" element={<SignIn />} />
-        <Route    path="/signup" element={<SignUp />} />
+        {/* <Route path="/signin" element={<SignIn />} /> */}
+        {/* <Route    path="/signup" element={<SignUp />} /> */}
         {/* <Route path="/admin-dashboard" element={<AdminDashboard />} /> */}
         <Route 
           path="/"
@@ -33,10 +33,10 @@ function App() {
             <Layout>         
               {/* <Home />       */}   
               {/* <AvatarSlider/> */}
-              <UsersList/>     
-              <Banner /> 
+              {/* <UsersList/>     
+              <Banner />  */}
               <br />
-              <Footer/>
+              {/* <Footer/> */}
 
               {/* <Banner/> */}
             </Layout>
