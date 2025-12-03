@@ -29,9 +29,9 @@ const Navbar = () => {
   };
 
 function index() {
-  return (
+  return (   
     <div>
-
+ 
 
 
       buffer matlab pdf images wagar a mongodb nhi bna aha ya chaezay store kay lia 
