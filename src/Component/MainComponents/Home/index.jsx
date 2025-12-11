@@ -15,7 +15,7 @@ const Index = () => {
    
       {/* Overlay Content */}
       <div className="relative z-10 text-center px-4 lg:px-8">
-        {/* Title */}
+        {/* Title */}    
         <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl mb-4 font-bold text-white">
           Eat Fresh, Feel Great – Because <br className="hidden sm:block" /> You Deserve the Best.
         </h1>
