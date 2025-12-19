@@ -1,18 +1,4 @@
-import React, { useEffect, useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
-import { toast } from "react-toastify";
-<<<<<<< HEAD
-import { useSelector } from 'react-redux';
 
-import CurrencyConverter from "../../MainComponents/CurrencyConverter";
-import Cart from "../../MainComponents/Cart";
-=======
-import { useSelector } from "react-redux";
-import CurrencyConverter from "../../MainComponents/CurrencyConverter";
-import Cart from "../../MainComponents/Cart";
-import axios from "axios";
-
->>>>>>> 11e2306d793a2afe975b4d1cd1d3fe0ae39a7783
 const Navbar = () => {
   const [isCartOpen, setIsCartOpen] = useState(false);
   const [user, setUser] = useState(null);
@@ -20,26 +6,7 @@ const Navbar = () => {
   const cartItems = useSelector((state) => state.cart.items);
   const itemCount = cartItems.length;
 
-<<<<<<< HEAD
 
-
-  const handleCartClick = () => {
-    const user = JSON.parse(localStorage.getItem("user"));
-
-    if (!user) {
-      toast.error("Please sign in first.");
-      setTimeout(() => {
-        navigate("/signin");
-      }, 3000);
-      return;
-    }
-
-    setIsCartOpen(true);
-  };
-
-=======
-  // ✅ Check login on mount
->>>>>>> 11e2306d793a2afe975b4d1cd1d3fe0ae39a7783
   useEffect(() => {
     axios.get("http://localhost:5000/me", { withCredentials: true })
       .then(res => setUser(res.data.user))
@@ -61,44 +28,17 @@ const Navbar = () => {
     navigate("/signin");
   };
 
-  return (
-    <div className="w-full border-b border-gray-200 bg-white px-4 py-3 flex justify-between items-center shadow-sm">
-      <h1 className="text-lg font-bold text-gray-800">🌿 Green Basket</h1>
+function index() {
+  return (   
+    <div>
+ 
 
-      <div className="flex items-center space-x-4">
-        <CurrencyConverter
-          className="ml-2"
-          triggerComponent={<div className="flex items-center space-x-1 cursor-pointer" />}
-        />
 
-        {/* Cart */}
-        <div
-          className="relative flex items-center space-x-1 cursor-pointer"
-          onClick={handleCartClick}
-        >
-          <span className="hidden md:block text-gray-600">Cart</span>
-          <div className="absolute -top-2 -right-2 bg-teal-500 text-white rounded-full text-xs w-5 h-5 flex items-center justify-center">
-            {itemCount}
-          </div>
-        </div>
-
-        {/* Auth Buttons */}
-        {!user ? (
-          <Link to="/signin" className="text-gray-600 hover:text-gray-400">Sign In</Link>
-        ) : (
-          <button
-            onClick={handleLogout}
-            className="bg-red-500 text-white px-3 py-1 rounded"
-          >
-            Logout
-          </button>
-        )}
-
-        {/* Cart Panel */}
-        <Cart isOpen={isCartOpen} onClose={() => setIsCartOpen(false)} />
+      buffer matlab pdf images wagar a mongodb nhi bna aha ya chaezay store kay lia 
+      AWS buket may image store ho te hai respose may url dey te hai  or wo ape database may save kar saktay ho 
+      ek ate ha cloudinary ya be response may url dey  ta ha 
       </div>
-    </div>
-  );
-};
+  )
+}
 
-export default Navbar;
+export default index
