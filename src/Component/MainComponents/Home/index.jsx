@@ -8,7 +8,7 @@ const Index = () => {
     <div className="relative w-full h-screen bg-gray-100 flex items-center justify-center">
       {/* Background Image */}
       <img
-        src={image}
+        src={image}   
         alt="Fresh Vegetables"
         className="absolute inset-0 w-full h-screen object-cover"
       />
