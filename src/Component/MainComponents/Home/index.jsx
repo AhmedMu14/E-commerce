@@ -8,7 +8,7 @@ const Index = () => {
     <div className="relative w-full h-screen bg-gray-100 flex items-center justify-center">
       {/* Background Image */}
       <img
-        src={image}
+        src={image}   
         alt="Fresh Vegetables"
         className="absolute inset-0 w-full h-screen object-cover"
       />
@@ -18,7 +18,7 @@ const Index = () => {
         {/* Title */}    
         <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl mb-4 font-bold text-white">
           Eat Fresh, Feel Great – Because <br className="hidden sm:block" /> You Deserve the Best.
-        </h1>
+        </h1>   
 
         {/* Subtitle */}
         <p className="text-sm sm:text-base md:text-lg text-gray-100 mb-6 max-w-md sm:max-w-lg mx-auto">
