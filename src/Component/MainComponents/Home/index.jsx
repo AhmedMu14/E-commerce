@@ -9,7 +9,7 @@ const Index = () => {
       {/* Background Image */}
       <img
         src={image}    
-        alt="Fresh Vegetables"      
+        alt="Fresh Vegetables"          
         className="absolute inset-0 w-full h-screen object-cover"
       />
    
