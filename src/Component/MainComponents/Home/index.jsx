@@ -10,7 +10,7 @@ const Index = () => {
       <img
         src={image}    
         alt="Fresh Vegetables"          
-        className="absolute inset-0 w-full h-screen object-cover"
+        className="absolute inset-0 w-full h-screen object-cover" 
       />
    
       {/* Overlay Content */} 
