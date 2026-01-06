@@ -11,7 +11,7 @@ const Index = () => {
         src={image}    
         alt="Fresh Vegetables"          
         className="absolute inset-0 w-full h-screen object-cover" 
-      />
+      />   
    
       {/* Overlay Content */} 
       <div className="relative z-10 text-center px-4 lg:px-8">
